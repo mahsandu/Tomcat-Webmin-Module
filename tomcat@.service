@@ -1,0 +1,15 @@
+[Unit]
+Description=Tomcat - instance %i
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+ExecStart=$CATALINA_HOME/bin/startup.sh
+ExecStop=$CATALINA_HOME/bin/shutdown.sh
+
+RestartSec=10
+Restart=always
